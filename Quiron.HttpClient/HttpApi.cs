@@ -1,18 +1,24 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 
 namespace Quiron.HttpClient
 {
     public abstract class HttpApi(System.Net.Http.HttpClient httpClient) : IHttpApi
     {
         protected virtual int Timeout => 60;
-        protected virtual Dictionary<string, string> Headers => new Dictionary<string, string> {
+        protected virtual Dictionary<string, string> Headers => new() {
             { "Accept", "application/json" },
             { "Accept-Encoding", "gzip,deflate,br" },
             { "Connection", "keep-alive" }
         };
+
+        public async virtual Task SetDomain(string domain)
+        {
+            if (string.IsNullOrWhiteSpace(domain))
+                return;
+            httpClient.BaseAddress = new Uri(domain);
+            await Task.CompletedTask;
+        }
 
         public async virtual Task<T> GetObjectAsync<T>(string endPoint, string token)
         {
@@ -27,15 +33,15 @@ namespace Quiron.HttpClient
                 T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
                 return objectReturn!;
             }
-            else if (response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+            else if (response.StatusCode == HttpStatusCode.BadRequest)
             {
                 throw new Exception($"[400] An unexpected error occurred while calling endpoint {endPoint}. Error: {await response.Content.ReadAsStringAsync()}");
             }
-            else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
+            else if (response.StatusCode == HttpStatusCode.NotFound)
             {
-                throw new Exception("[404] Endpoint not found.");
+                throw new Exception($"[404] Endpoint not found. Endpoint {endPoint} | Error: {await response.Content.ReadAsStringAsync()}");
             }
-            else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+            else if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 throw new Exception($"[401] Unauthorized call to endpoint {endPoint}");
             }

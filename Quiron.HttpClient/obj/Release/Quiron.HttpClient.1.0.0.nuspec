@@ -12,7 +12,7 @@
     <releaseNotes>Bug fix</releaseNotes>
     <copyright>MIT</copyright>
     <tags>quiron,http,client,api</tags>
-    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="f9444a20b08f75f77aa4c77e4d912a582aa06d72" />
+    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="a156c2bd15e50acfbb1eb5f4d05b7ac8a9a22d39" />
     <dependencies>
       <group targetFramework="net9.0">
         <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />

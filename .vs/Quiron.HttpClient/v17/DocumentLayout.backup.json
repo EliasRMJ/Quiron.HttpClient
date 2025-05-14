@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\httpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\httpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\HttpApi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Quiron.HttpClient\\HttpApi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\ihttpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\ihttpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\IHttpApi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Quiron.HttpClient\\IHttpApi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -60,7 +60,7 @@
               "RelativeDocumentMoniker": "Quiron.HttpClient\\HttpApi.cs",
               "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\HttpApi.cs",
               "RelativeToolTip": "Quiron.HttpClient\\HttpApi.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABoAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T12:32:14.671Z",
               "EditorCaption": ""
@@ -75,8 +75,7 @@
               "RelativeToolTip": "Quiron.HttpClient\\IHttpApi.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-14T12:31:41.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-05-14T12:31:41.004Z"
             }
           ]
         }
