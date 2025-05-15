@@ -31,27 +31,27 @@ namespace Quiron.HttpClient
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
-        public async virtual Task<T?> PatchObjectAsync<T>(string endPoint, T obj, string token)
+        public async virtual Task<T?> PatchObjectAsync<T>(string endPoint, object obj, string token)
         {
             this.Config(token);
 
-            var response = await httpClient.PatchAsync(endPoint, await HttpContent<T>(obj));
+            var response = await httpClient.PatchAsync(endPoint, await HttpContent(obj));
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
-        public async virtual Task<T?> PostObjectAsync<T>(string endPoint, T obj, string? token = "")
+        public async virtual Task<T?> PostObjectAsync<T>(string endPoint, object obj, string? token = "")
         {
             this.Config(token ?? string.Empty);
 
-            var response = await httpClient.PostAsync(endPoint, await HttpContent<T>(obj));
+            var response = await httpClient.PostAsync(endPoint, await HttpContent(obj));
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
-        public async virtual Task<T?> PutObjectAsync<T>(string endPoint, T obj, string token)
+        public async virtual Task<T?> PutObjectAsync<T>(string endPoint, object obj, string token)
         {
             this.Config(token);
 
-            var response = await httpClient.PutAsync(endPoint, await HttpContent<T>(obj));
+            var response = await httpClient.PutAsync(endPoint, await HttpContent(obj));
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
@@ -67,7 +67,7 @@ namespace Quiron.HttpClient
             httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
         }
 
-        private static async Task<StringContent> HttpContent<T>(T obj)
+        private static async Task<StringContent> HttpContent(object obj)
         {
             var requestJson = obj != null ? JsonConvert.SerializeObject(obj) : string.Empty;
             var httpContent = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");

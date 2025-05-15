@@ -26,7 +26,7 @@ protected virtual Dictionary<string, string> Headers => new() {
 ## Methods 
 
 ```csharp
-Task SetDomain(string domain);
+Task AddBaseAddress(string domain);
 Task<T?> GetObjectAsync<T>(string endPoint, string token);
 Task<T?> PostObjectAsync<T>(string endPoint, T obj, string token = "");
 Task<T?> PutObjectAsync<T>(string endPoint, T obj, string token);
