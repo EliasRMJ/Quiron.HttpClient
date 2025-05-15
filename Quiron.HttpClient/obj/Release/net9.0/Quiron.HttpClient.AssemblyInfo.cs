@@ -17,7 +17,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Project created to group endpoint call methods to facilitate the development and " +
     "consumption of APIs.")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.15.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.7+9212c89373680b2c1eb045c9a5287bae989c0c15")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.15+3c4da9dea17e2d03b10766107a530c7f68d115f3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Quiron.HttpClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Quiron.HttpClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.2.15.0")]

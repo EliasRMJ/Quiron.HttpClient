@@ -12,7 +12,7 @@
     <PackageTags>quiron,http,client,api</PackageTags>
     <PackageReleaseNotes>Bug fix</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.2.7</Version>
+    <Version>1.2.15</Version>
     <AssemblyVersion>1.2.15.0</AssemblyVersion>
     <FileVersion>1.2.15.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
