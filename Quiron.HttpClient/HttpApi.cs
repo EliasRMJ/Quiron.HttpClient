@@ -6,6 +6,7 @@ namespace Quiron.HttpClient
 {
     public abstract class HttpApi(System.Net.Http.HttpClient httpClient) : IHttpApi
     {
+        protected virtual string BaseDomain => string.Empty;
         protected virtual int Timeout => 60;
         protected virtual Dictionary<string, string> Headers => new() {
             { "Accept", "application/json" },
@@ -13,21 +14,11 @@ namespace Quiron.HttpClient
             { "Connection", "keep-alive" }
         };
 
-        public async virtual Task AddBaseAddress(string domain)
-        {
-            if (string.IsNullOrWhiteSpace(domain))
-                return;
-            httpClient.BaseAddress = new Uri(domain);
-            await Task.CompletedTask;
-        }
-
         public async virtual Task<T?> GetObjectAsync<T>(string endPoint, string token)
         {
             this.Config(token);
 
-            var request = new HttpRequestMessage(HttpMethod.Get, endPoint);
-
-            var response = await httpClient.SendAsync(request);
+            var response = await httpClient.SendAsync(new HttpRequestMessage(HttpMethod.Get, endPoint));
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
@@ -65,6 +56,8 @@ namespace Quiron.HttpClient
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
+            if (!string.IsNullOrWhiteSpace(this.BaseDomain))
+                httpClient.BaseAddress = new Uri(this.BaseDomain);
         }
 
         private static async Task<StringContent> HttpContent(object obj)
@@ -76,22 +69,31 @@ namespace Quiron.HttpClient
 
         private static async Task<T?> TryThrowException<T>(HttpStatusCode statusCode, string endPoint, HttpResponseMessage response)
         {
-            if (statusCode.Equals(HttpStatusCode.OK))
+            if (statusCode.Equals(HttpStatusCode.OK) || statusCode.Equals(HttpStatusCode.BadRequest))
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
                 T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
                 return objectReturn;
             }
+            else if (statusCode.Equals(HttpStatusCode.InternalServerError))
+            {
+                if (response.Content is not null)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
+                    return objectReturn;
+                }
 
-            var message = response.Content is not null ? await response.Content.ReadAsStringAsync() : string.Empty;
+                throw new Exception($"[500] An unexpected error occurred while executing the resource. Endpoint '{endPoint}'");
+            }
 
             throw statusCode switch
             {
-                HttpStatusCode.BadRequest => new Exception($"[400] An unexpected error occurred while calling endpoint {endPoint}. Error: {message}"),
                 HttpStatusCode.NotFound => new Exception($"[404] Endpoint not found. Endpoint {endPoint}"),
                 HttpStatusCode.Forbidden => new Exception($"[403] Access denied to endpoint {endPoint}"),
                 HttpStatusCode.Unauthorized => new Exception($"[401] Unauthorized call to endpoint {endPoint}"),
-                _ => new Exception($"[500] An unexpected error occurred while executing the resource. Endpoint '{endPoint}'")
+                HttpStatusCode.ServiceUnavailable => new Exception($"[502] An unexpected error occurred while executing the resource. Endpoint '{endPoint}'"),
+                _ => new Exception($"[-] Unknown error. Endpoint '{endPoint}'")
             };
         }
     }

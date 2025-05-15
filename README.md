@@ -15,6 +15,7 @@ If you find this project useful, please give it a star! It helps us grow and imp
 ## Protected Properties
 
 ```csharp
+protected virtual string BaseDomain => string.Empty; // you need to implement your base domain here ⚠️
 protected virtual int Timeout => 60;
 protected virtual Dictionary<string, string> Headers => new() {
             { "Accept", "application/json" },
@@ -26,11 +27,10 @@ protected virtual Dictionary<string, string> Headers => new() {
 ## Methods 
 
 ```csharp
-Task AddBaseAddress(string domain);
 Task<T?> GetObjectAsync<T>(string endPoint, string token);
-Task<T?> PostObjectAsync<T>(string endPoint, T obj, string token = "");
-Task<T?> PutObjectAsync<T>(string endPoint, T obj, string token);
-Task<T?> PatchObjectAsync<T>(string endPoint, T obj, string token);
+Task<T?> PostObjectAsync<T>(string endPoint, object obj, string token = "");
+Task<T?> PutObjectAsync<T>(string endPoint, object obj, string token);
+Task<T?> PatchObjectAsync<T>(string endPoint, object obj, string token);
 ```
 
 Supports:
