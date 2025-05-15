@@ -12,9 +12,21 @@ If you find this project useful, please give it a star! It helps us grow and imp
 - ✅ Newtonsoft.Json
 - ✅ System.Net.Http
 
-## Methods
+## Protected Properties
 
 ```csharp
+protected virtual int Timeout => 60;
+protected virtual Dictionary<string, string> Headers => new() {
+            { "Accept", "application/json" },
+            { "Accept-Encoding", "gzip,deflate,br" },
+            { "Connection", "keep-alive" }
+        };
+```
+
+## Methods 
+
+```csharp
+Task SetDomain(string domain);
 Task<T> GetObjectAsync<T>(string endPoint, string token);
 Task<HttpResponseMessage> PostObjectAsync<T>(string endPoint, T obj, string token = "");
 Task<HttpResponseMessage> PutObjectAsync<T>(string endPoint, T obj, string token);

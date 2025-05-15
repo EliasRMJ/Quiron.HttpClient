@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Net;
+using System.Net.Http.Headers;
 
 namespace Quiron.HttpClient
 {
@@ -12,7 +13,7 @@ namespace Quiron.HttpClient
             { "Connection", "keep-alive" }
         };
 
-        public async virtual Task SetDomain(string domain)
+        public async virtual Task AddBaseAddress(string domain)
         {
             if (string.IsNullOrWhiteSpace(domain))
                 return;
@@ -84,15 +85,13 @@ namespace Quiron.HttpClient
         private void Config(string token)
         {
             httpClient.DefaultRequestHeaders.Clear();
-            for (int i = 0; i < Headers.Count; i++)
-            {
-                var header = Headers.ElementAt(i);
+            foreach (var header in this.Headers)
                 httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
-            }
-            if (!string.IsNullOrWhiteSpace(token))
-                httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {token}");
 
-            httpClient.Timeout = TimeSpan.FromSeconds(Timeout);
+            if (!string.IsNullOrWhiteSpace(token))
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+
+            httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
         }
     }
 }

@@ -16,11 +16,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCopyrightAttribute("MIT")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Project created to group endpoint call methods to facilitate the development and " +
     "consumption of APIs.")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.11.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.11+3b0ea169c635a101c4db655db20ac8876b9af011")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.2.7.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.7+84b17edddc6826dc89bd38a3ac7941baff2cdc04")]
 [assembly: System.Reflection.AssemblyProductAttribute("Quiron.HttpClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Quiron.HttpClient")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.11.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.2.7.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/EliasRMJ/Quiron.HttpClient")]
 [assembly: System.Resources.NeutralResourcesLanguageAttribute("en")]
 

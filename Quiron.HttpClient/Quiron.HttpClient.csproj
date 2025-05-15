@@ -12,9 +12,9 @@
     <PackageTags>quiron,http,client,api</PackageTags>
     <PackageReleaseNotes>Bug fix</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.1.11</Version>
-    <AssemblyVersion>1.1.11.0</AssemblyVersion>
-    <FileVersion>1.1.11.0</FileVersion>
+    <Version>1.2.7</Version>
+    <AssemblyVersion>1.2.7.0</AssemblyVersion>
+    <FileVersion>1.2.7.0</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
