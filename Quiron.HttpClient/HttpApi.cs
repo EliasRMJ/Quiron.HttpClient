@@ -21,65 +21,38 @@ namespace Quiron.HttpClient
             await Task.CompletedTask;
         }
 
-        public async virtual Task<T> GetObjectAsync<T>(string endPoint, string token)
+        public async virtual Task<T?> GetObjectAsync<T>(string endPoint, string token)
         {
             this.Config(token);
 
             var request = new HttpRequestMessage(HttpMethod.Get, endPoint);
 
             var response = await httpClient.SendAsync(request);
-            if (response.IsSuccessStatusCode)
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
-                return objectReturn!;
-            }
-            else if (response.StatusCode == HttpStatusCode.BadRequest)
-            {
-                throw new Exception($"[400] An unexpected error occurred while calling endpoint {endPoint}. Error: {await response.Content.ReadAsStringAsync()}");
-            }
-            else if (response.StatusCode == HttpStatusCode.NotFound)
-            {
-                throw new Exception($"[404] Endpoint not found. Endpoint {endPoint} | Error: {await response.Content.ReadAsStringAsync()}");
-            }
-            else if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                throw new Exception($"[401] Unauthorized call to endpoint {endPoint}");
-            }
-            else
-            {
-                throw new Exception($"[500] An unexpected error occurred while executing the resource. Endpoint '{endPoint}' | Error: {await response.Content.ReadAsStringAsync()}");
-            }
+            return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
-        public async virtual Task<HttpResponseMessage> PatchObjectAsync<T>(string endPoint, T obj, string token)
+        public async virtual Task<T?> PatchObjectAsync<T>(string endPoint, T obj, string token)
         {
             this.Config(token);
 
-            var requestJson = obj != null ? JsonConvert.SerializeObject(obj) : string.Empty;
-            var httpContent = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");
-
-            return await httpClient.PatchAsync(endPoint, httpContent);
+            var response = await httpClient.PatchAsync(endPoint, await HttpContent<T>(obj));
+            return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
-        public async virtual Task<HttpResponseMessage> PostObjectAsync<T>(string endPoint, T obj, string? token = "")
+        public async virtual Task<T?> PostObjectAsync<T>(string endPoint, T obj, string? token = "")
         {
             this.Config(token ?? string.Empty);
 
-            var requestJson = JsonConvert.SerializeObject(obj);
-            var httpContent = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");
-
-            return await httpClient.PostAsync(endPoint, httpContent);
+            var response = await httpClient.PostAsync(endPoint, await HttpContent<T>(obj));
+            return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
-        public async virtual Task<HttpResponseMessage> PutObjectAsync<T>(string endPoint, T obj, string token)
+        public async virtual Task<T?> PutObjectAsync<T>(string endPoint, T obj, string token)
         {
             this.Config(token);
 
-            var requestJson = JsonConvert.SerializeObject(obj);
-            var httpContent = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");
-
-            return await httpClient.PutAsync(endPoint, httpContent);
+            var response = await httpClient.PutAsync(endPoint, await HttpContent<T>(obj));
+            return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
         private void Config(string token)
@@ -92,6 +65,34 @@ namespace Quiron.HttpClient
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
+        }
+
+        private static async Task<StringContent> HttpContent<T>(T obj)
+        {
+            var requestJson = obj != null ? JsonConvert.SerializeObject(obj) : string.Empty;
+            var httpContent = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");
+            return await Task.FromResult(httpContent);
+        }
+
+        private static async Task<T?> TryThrowException<T>(HttpStatusCode statusCode, string endPoint, HttpResponseMessage response)
+        {
+            if (statusCode.Equals(HttpStatusCode.OK))
+            {
+                var responseContent = await response.Content.ReadAsStringAsync();
+                T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
+                return objectReturn;
+            }
+
+            var message = response.Content is not null ? await response.Content.ReadAsStringAsync() : string.Empty;
+
+            throw statusCode switch
+            {
+                HttpStatusCode.BadRequest => new Exception($"[400] An unexpected error occurred while calling endpoint {endPoint}. Error: {message}"),
+                HttpStatusCode.NotFound => new Exception($"[404] Endpoint not found. Endpoint {endPoint}"),
+                HttpStatusCode.Forbidden => new Exception($"[403] Access denied to endpoint {endPoint}"),
+                HttpStatusCode.Unauthorized => new Exception($"[401] Unauthorized call to endpoint {endPoint}"),
+                _ => new Exception($"[500] An unexpected error occurred while executing the resource. Endpoint '{endPoint}'")
+            };
         }
     }
 }
