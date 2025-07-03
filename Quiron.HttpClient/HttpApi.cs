@@ -93,7 +93,7 @@ namespace Quiron.HttpClient
                 HttpStatusCode.Forbidden => new Exception($"[403] Access denied to endpoint {endPoint}"),
                 HttpStatusCode.Unauthorized => new Exception($"[401] Unauthorized call to endpoint {endPoint}"),
                 HttpStatusCode.ServiceUnavailable => new Exception($"[502] An unexpected error occurred while executing the resource. Endpoint '{endPoint}'"),
-                _ => new Exception($"[-] Unknown error. Endpoint '{endPoint}'")
+                _ => new Exception($"[{statusCode}] Unknown error. Endpoint '{endPoint}'")
             };
         }
     }
