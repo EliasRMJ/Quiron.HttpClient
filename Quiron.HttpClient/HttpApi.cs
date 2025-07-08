@@ -48,15 +48,17 @@ namespace Quiron.HttpClient
 
         private Task Config(string token)
         {
-            httpClient.DefaultRequestHeaders.Clear();
-            foreach (var header in this.Headers)
-                httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
-
+            httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
             if (!string.IsNullOrWhiteSpace(token))
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
-            httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
-            if (!string.IsNullOrWhiteSpace(this.BaseDomain))
+            if (!httpClient.DefaultRequestHeaders.Any())
+            {
+                foreach (var header in this.Headers)
+                    httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
+            }
+
+            if (!string.IsNullOrWhiteSpace(this.BaseDomain) && httpClient.BaseAddress is null)
                 httpClient.BaseAddress = new Uri(this.BaseDomain);
 
             return Task.CompletedTask;
