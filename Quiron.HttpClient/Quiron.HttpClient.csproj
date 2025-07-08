@@ -12,9 +12,9 @@
     <PackageTags>quiron,http,client,api</PackageTags>
     <PackageReleaseNotes>[{statusCode}] Unknown error. Endpoint '{endPoint}'</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.2.22</Version>
-    <AssemblyVersion>1.2.22.2</AssemblyVersion>
-    <FileVersion>1.2.22.2</FileVersion>
+    <Version>1.2.23</Version>
+    <AssemblyVersion>1.2.23.2</AssemblyVersion>
+    <FileVersion>1.2.23.2</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
