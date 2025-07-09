@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v9.0": {
-      "Quiron.HttpClient/1.2.25": {
+      "Quiron.HttpClient/1.2.26": {
         "dependencies": {
           "Newtonsoft.Json": "13.0.3",
           "System.Net.Http": "4.3.4"
@@ -418,7 +418,7 @@
     }
   },
   "libraries": {
-    "Quiron.HttpClient/1.2.25": {
+    "Quiron.HttpClient/1.2.26": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

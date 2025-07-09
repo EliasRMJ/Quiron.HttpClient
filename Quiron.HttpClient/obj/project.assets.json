@@ -2927,7 +2927,7 @@
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
-    "version": "1.2.25",
+    "version": "1.2.26",
     "restore": {
       "projectUniqueName": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\Quiron.HttpClient.csproj",
       "projectName": "Quiron.HttpClient",

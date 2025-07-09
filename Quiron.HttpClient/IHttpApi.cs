@@ -2,6 +2,7 @@
 {
     public interface IHttpApi
     {
+        Task EnsureHttpClientReset();
         Task<T?> GetObjectAsync<T>(string endPoint, string token);
         Task<T?> PostObjectAsync<T>(string endPoint, object obj, string token = "");
         Task<T?> PutObjectAsync<T>(string endPoint, object obj, string token);
