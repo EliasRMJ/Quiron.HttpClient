@@ -16,70 +16,78 @@ namespace Quiron.HttpClient
 
         public async virtual Task<T?> GetObjectAsync<T>(string endPoint, string token)
         {
-            await this.Config(token);
+            using var request = new HttpRequestMessage(HttpMethod.Get, new Uri(httpClient.BaseAddress!, endPoint));
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            foreach (var header in this.Headers)
+                request.Headers.TryAddWithoutValidation(header.Key, header.Value);
 
-            var response = await httpClient.GetAsync(endPoint);
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
+
+            httpClient.Timeout = TimeSpan.FromSeconds(Timeout);
+            var response = await httpClient.SendAsync(request, cts.Token);
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
         public async virtual Task<T?> PatchObjectAsync<T>(string endPoint, object obj, string token)
         {
-            await this.Config(token);
+            using var request = new HttpRequestMessage(HttpMethod.Patch, new Uri(httpClient.BaseAddress!, endPoint));
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            request.Content = await HttpContent(obj);
+            
+            foreach (var header in this.Headers)
+                request.Headers.TryAddWithoutValidation(header.Key, header.Value);
 
-            var response = await httpClient.PatchAsync(endPoint, await HttpContent(obj));
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
+
+            httpClient.Timeout = TimeSpan.FromSeconds(Timeout);
+            var response = await httpClient.SendAsync(request, cts.Token);
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
         public async virtual Task<T?> PostObjectAsync<T>(string endPoint, object obj, string? token = "")
         {
-            await this.Config(token ?? string.Empty);
+            using var request = new HttpRequestMessage(HttpMethod.Post, new Uri(httpClient.BaseAddress!, endPoint));
+            if (!string.IsNullOrWhiteSpace(token))
+                request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            request.Content = await HttpContent(obj);
 
-            var response = await httpClient.PostAsync(endPoint, await HttpContent(obj));
+            foreach (var header in this.Headers)
+                request.Headers.TryAddWithoutValidation(header.Key, header.Value);
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
+
+            httpClient.Timeout = TimeSpan.FromSeconds(Timeout);
+            var response = await httpClient.SendAsync(request, cts.Token);
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
         }
 
         public async virtual Task<T?> PutObjectAsync<T>(string endPoint, object obj, string token)
         {
-            await this.Config(token);
+            using var request = new HttpRequestMessage(HttpMethod.Put, new Uri(httpClient.BaseAddress!, endPoint));
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+            request.Content = await HttpContent(obj);
 
-            var response = await httpClient.PutAsync(endPoint, await HttpContent(obj));
+            foreach (var header in this.Headers)
+                request.Headers.TryAddWithoutValidation(header.Key, header.Value);
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
+
+            httpClient.Timeout = TimeSpan.FromSeconds(Timeout);
+            var response = await httpClient.SendAsync(request, cts.Token);
             return await TryThrowException<T>(response.StatusCode, endPoint, response);
-        }
-
-        private Task Config(string token)
-        {
-            httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
-            if (!string.IsNullOrWhiteSpace(token))
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
-
-            if (!httpClient.DefaultRequestHeaders.Any())
-            {
-                foreach (var header in this.Headers)
-                    httpClient.DefaultRequestHeaders.Add(header.Key, header.Value);
-            }
-
-            if (!string.IsNullOrWhiteSpace(this.BaseDomain) && httpClient.BaseAddress is null)
-                httpClient.BaseAddress = new Uri(this.BaseDomain);
-
-            return Task.CompletedTask;
         }
 
         private static async Task<StringContent> HttpContent(object obj)
         {
-            var requestJson = obj != null ? JsonConvert.SerializeObject(obj) : string.Empty;
+            var requestJson = obj is not null ? JsonConvert.SerializeObject(obj) : string.Empty;
             var httpContent = new StringContent(requestJson, System.Text.Encoding.UTF8, "application/json");
+
             return await Task.FromResult(httpContent);
         }
 
         private static async Task<T?> TryThrowException<T>(HttpStatusCode statusCode, string endPoint, HttpResponseMessage response)
         {
-            if (statusCode.Equals(HttpStatusCode.OK))
-            {
-                var responseContent = await response.Content.ReadAsStringAsync();
-                T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
-                return objectReturn;
-            }
-            else if (response.Content is not null)
+            if (response.Content is not null)
             {
                 var responseContent = await response.Content.ReadAsStringAsync();
                 T objectReturn = JsonConvert.DeserializeObject<T>(responseContent);
