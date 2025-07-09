@@ -17,10 +17,9 @@ namespace Quiron.HttpClient
 
         private bool _isConfigured = false;
 
-        public async Task EnsureHttpClientReset()
+        public void EnsureHttpClientReset()
         {
             _isConfigured = false;
-            await Task.FromResult(_isConfigured);
         }
 
         public async virtual Task<T?> GetObjectAsync<T>(string endPoint, string token)
@@ -69,7 +68,7 @@ namespace Quiron.HttpClient
 
             httpClient.Timeout = TimeSpan.FromSeconds(Timeout);
 
-            if (!string.IsNullOrWhiteSpace(BaseDomain) && httpClient.BaseAddress is null)
+            if (!string.IsNullOrWhiteSpace(BaseDomain))
                 httpClient.BaseAddress = new Uri(BaseDomain);
 
             _isConfigured = true;
