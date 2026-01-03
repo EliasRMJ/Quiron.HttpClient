@@ -51,10 +51,9 @@ namespace Quiron.HttpClient
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             var infos = this.ResolveCertificateInfo();
-            if (infos is not null && infos.Count.Equals(4))
+            if (infos is not null)
             {
-                request.Headers.Add("X-Dir-Base", infos["DirBase"]);
-                request.Headers.Add("X-File-Name", infos["FileName"]);
+                request.Headers.Add("X-Certificate", infos["Certificate"]);
                 request.Headers.Add("X-Client-Id", infos["ClientId"]);
                 request.Headers.Add("X-Client-Secret", infos["ClientSecret"]);
             }

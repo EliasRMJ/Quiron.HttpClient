@@ -6,21 +6,19 @@
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
-            if (!request.Headers.TryGetValues("X-Dir-Base", out var dirBaseValue) ||
-                !request.Headers.TryGetValues("X-File-Name", out var fileNameValue) ||
+            if (!request.Headers.TryGetValues("X-Certificate", out var certificateValue) ||
                 !request.Headers.TryGetValues("X-Client-Id", out var clientIdValue) ||
                 !request.Headers.TryGetValues("X-Client-Secret", out var clientSecretValue))
                 return await base.SendAsync(request, cancellationToken);
 
-            var dirBase = dirBaseValue.First();
-            var fileName = fileNameValue.First();
+            var certificate = certificateValue.First();
             var clientId = clientIdValue.First();
             var clientSecret = clientSecretValue.First();
 
-            var certificate = certificateResolver.GetCertificate(dirBase, clientId, clientSecret, fileName);
+            var certificateFile = certificateResolver.GetCertificate(certificate, clientId, clientSecret);
 
             var handler = new HttpClientHandler();
-            handler.ClientCertificates.Add(certificate);
+            handler.ClientCertificates.Add(certificateFile);
 
             using var client = new System.Net.Http.HttpClient(handler, disposeHandler: true);
 
