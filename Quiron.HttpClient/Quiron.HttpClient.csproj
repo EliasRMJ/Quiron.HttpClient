@@ -10,11 +10,11 @@
     <PackageIcon>quiron-package.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <PackageTags>quiron,http,client,api</PackageTags>
-    <PackageReleaseNotes>[{statusCode}] Unknown error. Endpoint '{endPoint}'</PackageReleaseNotes>
+    <PackageReleaseNotes>[Test] Implementation of a 'DelegatingHandler' to handle calls with digital certificates.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.2.27</Version>
-    <AssemblyVersion>1.2.27.2</AssemblyVersion>
-    <FileVersion>1.2.27.2</FileVersion>
+    <Version>1.3.11-rc</Version>
+    <AssemblyVersion>1.3.11.2</AssemblyVersion>
+    <FileVersion>1.3.11.2</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

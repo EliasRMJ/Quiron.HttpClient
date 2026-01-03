@@ -17,6 +17,11 @@ namespace Quiron.HttpClient
 
         private bool _isConfigured = false;
 
+        protected virtual Dictionary<string, string>? ResolveCertificateInfo()
+        {
+            return null; 
+        }
+
         public void EnsureHttpClientReset()
         {
             _isConfigured = false;
@@ -34,7 +39,8 @@ namespace Quiron.HttpClient
         public async virtual Task<T?> PutObjectAsync<T>(string endPoint, object obj, string token)
             => await SendAsync<T>(HttpMethod.Put, endPoint, token, obj);
 
-        private HttpRequestMessage CreateRequest(HttpMethod method, string endPoint, string? token, object? body = null)
+        private HttpRequestMessage CreateRequest(HttpMethod method, string endPoint, string? token
+            , object? body = null)
         {
             var request = new HttpRequestMessage(method, endPoint);
 
@@ -44,13 +50,24 @@ namespace Quiron.HttpClient
             if (!string.IsNullOrWhiteSpace(token))
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
+            var infos = this.ResolveCertificateInfo();
+            if (infos is not null && infos.Count.Equals(4))
+            {
+                request.Headers.Add("X-Dir-Base", infos["DirBase"]);
+                request.Headers.Add("X-File-Name", infos["FileName"]);
+                request.Headers.Add("X-Client-Id", infos["ClientId"]);
+                request.Headers.Add("X-Client-Secret", infos["ClientSecret"]);
+            }
+         
             if (body is not null)
-                request.Content = new StringContent(JsonConvert.SerializeObject(body), System.Text.Encoding.UTF8, "application/json");
+                request.Content = new StringContent(JsonConvert.SerializeObject(body)
+                    , System.Text.Encoding.UTF8, "application/json");
 
             return request;
         }
 
-        private async Task<T?> SendAsync<T>(HttpMethod method, string endPoint, string? token, object? body = null)
+        private async Task<T?> SendAsync<T>(HttpMethod method, string endPoint, string? token
+            , object? body = null)
         {
             using var request = CreateRequest(method, endPoint, token, body);
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
