@@ -3,20 +3,12 @@
   "WorkspaceRootPath": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\quiron.httpclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\quiron.httpclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\httpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\httpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\clientcertificatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\clientcertificatehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\filecertificateresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\filecertificateresolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\quiron.httpclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\quiron.httpclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -66,52 +58,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Quiron.HttpClient",
               "DocumentMoniker": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\Quiron.HttpClient.csproj",
               "RelativeDocumentMoniker": "Quiron.HttpClient\\Quiron.HttpClient.csproj",
               "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\Quiron.HttpClient.csproj",
               "RelativeToolTip": "Quiron.HttpClient\\Quiron.HttpClient.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
               "WhenOpened": "2026-01-03T17:12:12.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "FileCertificateResolver.cs",
-              "DocumentMoniker": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\FileCertificateResolver.cs",
-              "RelativeDocumentMoniker": "Quiron.HttpClient\\FileCertificateResolver.cs",
-              "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\FileCertificateResolver.cs",
-              "RelativeToolTip": "Quiron.HttpClient\\FileCertificateResolver.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T17:10:47.201Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ClientCertificateHandler.cs",
-              "DocumentMoniker": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\ClientCertificateHandler.cs",
-              "RelativeDocumentMoniker": "Quiron.HttpClient\\ClientCertificateHandler.cs",
-              "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\ClientCertificateHandler.cs",
-              "RelativeToolTip": "Quiron.HttpClient\\ClientCertificateHandler.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-03T16:48:06.605Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "HttpApi.cs",
               "DocumentMoniker": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\HttpApi.cs",
               "RelativeDocumentMoniker": "Quiron.HttpClient\\HttpApi.cs",
               "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\HttpApi.cs",
               "RelativeToolTip": "Quiron.HttpClient\\HttpApi.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA2AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T12:32:14.671Z",
               "EditorCaption": ""

@@ -10,10 +10,10 @@
     <PackageIcon>quiron-package.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <PackageTags>quiron,http,client,api</PackageTags>
-    <PackageReleaseNotes>[Test 2] Implementation of a 'DelegatingHandler' to handle calls with digital certificates.</PackageReleaseNotes>
+    <PackageReleaseNotes>Implementation of a 'HttpClientHandler' to handle calls with digital certificates.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.3.12-rc</Version>
-    <AssemblyVersion>1.3.12.2</AssemblyVersion>
+    <Version>1.3.12</Version>
+    <AssemblyVersion>1.3.12</AssemblyVersion>
     <FileVersion>1.3.12.2</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>

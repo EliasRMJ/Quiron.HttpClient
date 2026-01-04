@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Quiron.HttpClient</id>
+    <version>1.3.12</version>
+    <authors>EliasRMJ</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <icon>quiron-package.png</icon>
+    <readme>README.md</readme>
+    <description>Project created to group endpoint call methods to facilitate the development and consumption of APIs.</description>
+    <releaseNotes>Implementation of a 'HttpClientHandler' to handle calls with digital certificates.</releaseNotes>
+    <copyright>MIT</copyright>
+    <tags>quiron,http,client,api</tags>
+    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="94154a29ac9e8dc291e9071019fca83fa45e73b9" />
+    <dependencies>
+      <group targetFramework="net9.0">
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="System.Net.Http" version="4.3.4" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <contentFiles>
+      <files include="any/net9.0/quiron-package.ico" buildAction="Content" />
+    </contentFiles>
+  </metadata>
+  <files>
+    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\bin\Debug\net9.0\Quiron.HttpClient.dll" target="lib\net9.0\Quiron.HttpClient.dll" />
+    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\quiron-package.ico" target="content\quiron-package.ico" />
+    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\quiron-package.ico" target="contentFiles\any\net9.0\quiron-package.ico" />
+    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\quiron-package.png" target="\quiron-package.png" />
+    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\README.md" target="\README.md" />
+  </files>
+</package>
