@@ -12,7 +12,7 @@
     <releaseNotes>Implementation of a 'HttpClientHandler' to handle calls with digital certificates.</releaseNotes>
     <copyright>MIT</copyright>
     <tags>quiron,http,client,api</tags>
-    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="a4f73655f59514264c1683eb2f2644da6ec89c9f" />
+    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="213b15a993be8fc469a458a17ad9563a9013f07d" />
     <dependencies>
       <group targetFramework="net9.0">
         <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
