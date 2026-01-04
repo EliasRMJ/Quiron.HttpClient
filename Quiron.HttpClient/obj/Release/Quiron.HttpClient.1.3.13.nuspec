@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Quiron.HttpClient</id>
-    <version>1.3.12</version>
+    <version>1.3.13</version>
     <authors>EliasRMJ</authors>
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
@@ -24,7 +24,7 @@
     </contentFiles>
   </metadata>
   <files>
-    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\bin\Debug\net9.0\Quiron.HttpClient.dll" target="lib\net9.0\Quiron.HttpClient.dll" />
+    <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\bin\Release\net9.0\Quiron.HttpClient.dll" target="lib\net9.0\Quiron.HttpClient.dll" />
     <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\quiron-package.ico" target="content\quiron-package.ico" />
     <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\quiron-package.ico" target="contentFiles\any\net9.0\quiron-package.ico" />
     <file src="C:\Meus Projetos GUI\SGS V_W\Quiron.HttpClient\Quiron.HttpClient\quiron-package.png" target="\quiron-package.png" />
