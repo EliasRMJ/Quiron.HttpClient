@@ -32,7 +32,13 @@ namespace Quiron.HttpClient
         public async virtual Task<(byte[] content, string contentType)> DownloadAsync<T>(string endPoint
             , string? token = "")
         {
-            using var request = CreateRequest(HttpMethod.Get, endPoint, token);
+            return await DownloadAsync<T>(HttpMethod.Get, endPoint, null, token);
+        }
+
+        public async virtual Task<(byte[] content, string contentType)> DownloadAsync<T>(HttpMethod method
+            , string endPoint, object? obj = null, string? token = "")
+        {
+            using var request = CreateRequest(method, endPoint, token, obj);
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
 
             this.EnsureHttpClientConfigured();
@@ -41,11 +47,11 @@ namespace Quiron.HttpClient
             response.EnsureSuccessStatusCode();
 
             if (response.Content is null)
-                throw new Exception("Response content is null.");
+                throw new Exception($"Response content is null to {endPoint}.");
 
             var bytes = await response.Content.ReadAsByteArrayAsync();
             var contentType = response.Content.Headers.ContentType?.ToString() ?? "application/pdf";
-            
+
             return (bytes, contentType);
         }
 

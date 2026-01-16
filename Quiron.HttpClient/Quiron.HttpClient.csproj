@@ -10,11 +10,11 @@
     <PackageIcon>quiron-package.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <PackageTags>quiron,http,client,api</PackageTags>
-    <PackageReleaseNotes>Implementation of a method 'DownloadAsync' to download for file.</PackageReleaseNotes>
+    <PackageReleaseNotes>[Bugfix]Implementation of a method 'DownloadAsync' to download for file.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.4.11</Version>
-    <AssemblyVersion>1.4.11</AssemblyVersion>
-    <FileVersion>1.4.11.2</FileVersion>
+    <Version>1.4.12</Version>
+    <AssemblyVersion>1.4.12</AssemblyVersion>
+    <FileVersion>1.4.12.2</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
