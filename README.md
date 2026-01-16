@@ -15,6 +15,9 @@ If you find this project useful, please give it a star! It helps us grow and imp
 ## Protected Properties
 
 ```csharp
+protected const string _CERTIFICATE_HEADER = "X-Certificate";
+protected const string _CLIENT_ID_HEADER = "X-Client-Id";
+protected const string _CLIENT_SECRET_HEADER = "X-Client-Secret";
 protected virtual string BaseDomain => string.Empty; // you need to implement your base domain here ⚠️
 protected virtual int Timeout => 60;
 protected virtual Dictionary<string, string> Headers => new() {
@@ -27,6 +30,8 @@ protected virtual Dictionary<string, string> Headers => new() {
 ## Methods 
 
 ```csharp
+Task<(byte[] content, string contentType)> DownloadAsync<T>(HttpMethod method, string endPoint, object? obj = null, string? token = "");
+Task<(byte[] content, string contentType)> DownloadAsync<T>(string endPoint, string? token = "");
 Task<T?> GetObjectAsync<T>(string endPoint, string token);
 Task<T?> PostObjectAsync<T>(string endPoint, object obj, string token = "");
 Task<T?> PutObjectAsync<T>(string endPoint, object obj, string token);
