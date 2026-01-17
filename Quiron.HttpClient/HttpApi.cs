@@ -16,7 +16,7 @@ namespace Quiron.HttpClient
         protected virtual int Timeout => 60;
         protected virtual Dictionary<string, string> Headers => new()
         {
-            { "Accept", "application/json" },
+            { "Accept", "application/pdf" },
             { "Accept-Encoding", "gzip,deflate,br" },
             { "Connection", "keep-alive" }
         };
@@ -38,7 +38,7 @@ namespace Quiron.HttpClient
         public async virtual Task<(byte[] content, string contentType)> DownloadAsync<T>(HttpMethod method
             , string endPoint, object? obj = null, string? token = "")
         {
-            using var request = CreateRequest(method, endPoint, token, obj);
+            using var request = CreateRequest(method, endPoint, token, obj, "multipart/form-data");
             using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(Timeout));
 
             this.EnsureHttpClientConfigured();
@@ -83,7 +83,7 @@ namespace Quiron.HttpClient
         }
 
         private HttpRequestMessage CreateRequest(HttpMethod method, string endPoint, string? token
-            , object? body = null)
+            , object? body = null, string contentType = "application/json")
         {
             var certificate = this.Headers.FirstOrDefault(find => find.Key == _CERTIFICATE_HEADER).Value;
             var clientId = this.Headers.FirstOrDefault(find => find.Key == _CLIENT_ID_HEADER).Value;
@@ -100,14 +100,14 @@ namespace Quiron.HttpClient
                                                          && find.Key != _CLIENT_ID_HEADER
                                                          && find.Key != _CLIENT_SECRET_HEADER);
             foreach (var header in headersExclude)
-                request.Headers.TryAddWithoutValidation(header.Key, header.Value);
+               request.Headers.TryAddWithoutValidation(header.Key, header.Value);
 
             if (!string.IsNullOrWhiteSpace(token))
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             if (body is not null)
-                request.Content = new StringContent(JsonConvert.SerializeObject(body)
-                    , System.Text.Encoding.UTF8, "application/json");
+                request.Content = new StringContent(!contentType.Contains("multipart") ? JsonConvert.SerializeObject(body) : body?.ToString() ?? string.Empty
+                    , System.Text.Encoding.UTF8, contentType);
 
             return request;
         }

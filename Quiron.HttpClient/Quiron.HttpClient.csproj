@@ -12,9 +12,9 @@
     <PackageTags>quiron,http,client,api</PackageTags>
     <PackageReleaseNotes>[Bugfix]Implementation of a method 'DownloadAsync' to download for file.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.4.12</Version>
-    <AssemblyVersion>1.4.12</AssemblyVersion>
-    <FileVersion>1.4.12.2</FileVersion>
+    <Version>1.4.13</Version>
+    <AssemblyVersion>1.4.13</AssemblyVersion>
+    <FileVersion>1.4.13.2</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
