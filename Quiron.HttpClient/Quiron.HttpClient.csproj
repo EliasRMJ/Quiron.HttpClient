@@ -10,11 +10,11 @@
     <PackageIcon>quiron-package.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <PackageTags>quiron,http,client,api</PackageTags>
-    <PackageReleaseNotes>[Bugfix]Implementation of a method 'DownloadAsync' to download for file.</PackageReleaseNotes>
+    <PackageReleaseNotes>Implementation of a property 'JsonSerializerSettings' to control of visibility the json contructor.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.4.13</Version>
-    <AssemblyVersion>1.4.13</AssemblyVersion>
-    <FileVersion>1.4.13.2</FileVersion>
+    <Version>1.4.14</Version>
+    <AssemblyVersion>1.4.14</AssemblyVersion>
+    <FileVersion>1.4.14.2</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

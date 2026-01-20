@@ -12,7 +12,7 @@ namespace Quiron.HttpClient
         protected const string _CLIENT_ID_HEADER = "X-Client-Id";
         protected const string _CLIENT_SECRET_HEADER = "X-Client-Secret";
 
-        protected virtual string BaseDomain => string.Empty;
+        protected virtual string? BaseDomain { get; set; }
         protected virtual int Timeout => 60;
         protected virtual Dictionary<string, string> Headers => new()
         {
@@ -20,6 +20,7 @@ namespace Quiron.HttpClient
             { "Accept-Encoding", "gzip,deflate,br" },
             { "Connection", "keep-alive" }
         };
+        protected virtual JsonSerializerSettings JsonSerializerSettings => new() { NullValueHandling = NullValueHandling.Ignore };
 
         private bool _isConfigured = false;
         private readonly ConcurrentDictionary<string, System.Net.Http.HttpClient> _httpClients = new();
@@ -106,7 +107,9 @@ namespace Quiron.HttpClient
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
             if (body is not null)
-                request.Content = new StringContent(!contentType.Contains("multipart") ? JsonConvert.SerializeObject(body) : body?.ToString() ?? string.Empty
+                request.Content = new StringContent(!contentType.Contains("multipart") ? 
+                    JsonConvert.SerializeObject(body, new JsonSerializerSettings { NullValueHandling  = NullValueHandling.Ignore }) : 
+                    body?.ToString() ?? string.Empty
                     , System.Text.Encoding.UTF8, contentType);
 
             return request;
@@ -129,7 +132,7 @@ namespace Quiron.HttpClient
         {
             if (_isConfigured) return;
 
-            if (string.IsNullOrWhiteSpace(BaseDomain))
+            if (string.IsNullOrWhiteSpace(this.BaseDomain))
                 throw new Exception("'BaseDomain' property is not configured.");
 
             httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
