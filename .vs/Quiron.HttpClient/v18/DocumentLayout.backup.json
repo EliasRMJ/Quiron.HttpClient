@@ -5,6 +5,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\httpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\httpapi.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|c:\\meus projetos gui\\sgs v_w\\quiron.httpclient\\quiron.httpclient\\quiron.httpclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{271056B2-D2BC-4FB1-860C-91BE3DE151C0}|Quiron.HttpClient\\Quiron.HttpClient.csproj|solutionrelative:quiron.httpclient\\quiron.httpclient.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -54,11 +58,20 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Quiron.HttpClient.csproj",
+              "DocumentMoniker": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\Quiron.HttpClient.csproj",
+              "RelativeDocumentMoniker": "Quiron.HttpClient\\Quiron.HttpClient.csproj",
+              "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\Quiron.HttpClient.csproj",
+              "RelativeToolTip": "Quiron.HttpClient\\Quiron.HttpClient.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAB8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-20T17:45:20.047Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -68,7 +81,7 @@
               "RelativeDocumentMoniker": "Quiron.HttpClient\\HttpApi.cs",
               "ToolTip": "C:\\Meus Projetos GUI\\SGS V_W\\Quiron.HttpClient\\Quiron.HttpClient\\HttpApi.cs",
               "RelativeToolTip": "Quiron.HttpClient\\HttpApi.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABUAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAA1wCQAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-14T12:32:14.671Z",
               "EditorCaption": ""
