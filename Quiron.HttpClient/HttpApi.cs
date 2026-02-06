@@ -1,6 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Polly;
-using Polly.Extensions.Http;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Http.Headers;
