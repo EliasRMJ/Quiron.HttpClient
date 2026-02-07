@@ -2,14 +2,14 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Quiron.HttpClient</id>
-    <version>1.4.16</version>
+    <version>1.4.17</version>
     <authors>EliasRMJ</authors>
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
     <icon>quiron-package.png</icon>
     <readme>README.md</readme>
     <description>Project created to group endpoint call methods to facilitate the development and consumption of APIs.</description>
-    <releaseNotes>Polly) interfaces.</releaseNotes>
+    <releaseNotes>Three more 'Policies' have been added to improve the performance of HttpResponseMessage. These are: TimeoutPolicy, CircuitBreakerPolicy, and ResiliencePolicy. The ResiliencePolicy includes the following policies: RetryPolicy, TimeoutPolicy, and CircuitBreakerPolicy.</releaseNotes>
     <copyright>MIT</copyright>
     <tags>quiron,http,client,api</tags>
     <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="c03e53963c715d9d922e08f9a32c62323e791185" />

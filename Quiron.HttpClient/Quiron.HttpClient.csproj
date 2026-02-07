@@ -10,11 +10,11 @@
     <PackageIcon>quiron-package.png</PackageIcon>
     <RepositoryType>git</RepositoryType>
     <PackageTags>quiron,http,client,api</PackageTags>
-    <PackageReleaseNotes>Implementing 'Polly' in the request independently using the IHttpApi and IHttpApiWithRetry (Polly) interfaces.</PackageReleaseNotes>
+    <PackageReleaseNotes>Three more 'Policies' have been added to improve the performance of HttpResponseMessage. These are: TimeoutPolicy, CircuitBreakerPolicy, and ResiliencePolicy. The ResiliencePolicy includes the following policies: RetryPolicy, TimeoutPolicy, and CircuitBreakerPolicy.</PackageReleaseNotes>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.4.16</Version>
-    <AssemblyVersion>1.4.16</AssemblyVersion>
-    <FileVersion>1.4.16.1</FileVersion>
+    <Version>1.4.17</Version>
+    <AssemblyVersion>1.4.17</AssemblyVersion>
+    <FileVersion>1.4.17.1</FileVersion>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <ApplicationIcon>quiron-package.ico</ApplicationIcon>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

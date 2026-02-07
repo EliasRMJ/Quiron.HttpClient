@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "Quiron.HttpClient/1.4.16": {
+      "Quiron.HttpClient/1.4.17": {
         "dependencies": {
           "Microsoft.Extensions.Http.Polly": "10.0.2",
           "Newtonsoft.Json": "13.0.3"
@@ -212,7 +212,7 @@
     }
   },
   "libraries": {
-    "Quiron.HttpClient/1.4.16": {
+    "Quiron.HttpClient/1.4.17": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
