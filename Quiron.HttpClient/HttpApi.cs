@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Polly;
 using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Http.Headers;
@@ -14,7 +13,7 @@ namespace Quiron.HttpClient
         protected const string _CLIENT_SECRET_HEADER = "X-Client-Secret";
 
         protected virtual string? BaseDomain { get; set; }
-        protected virtual int Timeout => 30;
+        protected virtual int Timeout => 45;
         protected virtual Dictionary<string, string> Headers => new()
         {
             { "Accept", "application/pdf" },
@@ -136,7 +135,7 @@ namespace Quiron.HttpClient
             if (string.IsNullOrWhiteSpace(this.BaseDomain))
                 throw new Exception("'BaseDomain' property is not configured.");
 
-            httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout+30);
+            httpClient.Timeout = TimeSpan.FromSeconds(this.Timeout);
             httpClient.BaseAddress = new Uri(this.BaseDomain);
             
             _isConfigured = true;

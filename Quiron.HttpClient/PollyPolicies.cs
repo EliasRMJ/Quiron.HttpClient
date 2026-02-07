@@ -22,14 +22,14 @@ namespace Quiron.HttpClient
                 );
 
         public static IAsyncPolicy<HttpResponseMessage> TimeoutPolicy =>
-           Policy.TimeoutAsync<HttpResponseMessage>(30);
+           Policy.TimeoutAsync<HttpResponseMessage>(25);
 
         public static IAsyncPolicy<HttpResponseMessage> CircuitBreakerPolicy =>
             HttpPolicyExtensions
                 .HandleTransientHttpError()
                 .CircuitBreakerAsync(
                     handledEventsAllowedBeforeBreaking: 5,
-                    durationOfBreak: TimeSpan.FromSeconds(30)
+                    durationOfBreak: TimeSpan.FromSeconds(25)
                 );
 
         public static IAsyncPolicy<HttpResponseMessage> ResiliencePolicy(ILogger? logger = null) =>

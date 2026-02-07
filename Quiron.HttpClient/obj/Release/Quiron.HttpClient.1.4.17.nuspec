@@ -12,7 +12,7 @@
     <releaseNotes>Three more 'Policies' have been added to improve the performance of HttpResponseMessage. These are: TimeoutPolicy, CircuitBreakerPolicy, and ResiliencePolicy. The ResiliencePolicy includes the following policies: RetryPolicy, TimeoutPolicy, and CircuitBreakerPolicy.</releaseNotes>
     <copyright>MIT</copyright>
     <tags>quiron,http,client,api</tags>
-    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="c03e53963c715d9d922e08f9a32c62323e791185" />
+    <repository type="git" url="https://github.com/EliasRMJ/Quiron.HttpClient" commit="3893c6dfe849efa6a5ae6257f01e29e029186d27" />
     <dependencies>
       <group targetFramework="net10.0">
         <dependency id="Microsoft.Extensions.Http.Polly" version="10.0.2" exclude="Build,Analyzers" />
